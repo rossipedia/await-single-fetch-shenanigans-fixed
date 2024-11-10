@@ -10,3 +10,7 @@ body {
     color-scheme: dark;
   }
 }
+
+.prose a {
+  @apply text-blue-600 hover:text-blue-500 no-underline hover:underline;
+}
