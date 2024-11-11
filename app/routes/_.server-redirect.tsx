@@ -14,7 +14,15 @@ export function loader() {
 
 export function clientLoader({ serverLoader }: ClientLoaderFunctionArgs) {
   return {
-    promise: serverLoader(),
+    promise: serverLoader()
+      .then((r) => {
+        console.log('--- serverLoader RESOLVED ---');
+        return r;
+      })
+      .catch((e) => {
+        console.log('--- serverLoader REJECTED ---');
+        throw e;
+      }),
   };
 }
 
